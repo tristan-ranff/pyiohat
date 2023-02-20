@@ -19,7 +19,9 @@ jobs:
     - name: Install pyiohat
       run: pip install .
     - name: Install Sphinx
-      run: pip install sphinx
+      run: |
+        pip install sphinx
+        pip install sphinx-rtd-theme
     - name: Build documentation using Sphinx
       run: |
         rm -r docs/
