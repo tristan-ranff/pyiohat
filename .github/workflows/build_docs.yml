@@ -28,10 +28,6 @@ jobs:
         echo "sys.path.insert(0, os.path.abspath('..'))" >> conf.py
         sphinx-apidoc -o source/ ../pyiohat
         make html
-    - uses: actions/upload-artifact@v1
-      with:
-        name: DocumentationHTML
-        path: docs/_build/html/
     - name: Checkout Github Pages branch
       uses: actions/checkout@v3
       with:
