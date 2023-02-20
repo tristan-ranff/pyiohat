@@ -8,9 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: ammaraskar/sphinx-action@master
+    - uses: actions/setup-python@v2
       with:
-        docs-folder: "docs/"
+        python-version: 3.10
+    - name: Install Sphinx
+      run: pip install sphinx
+    - name: Build documentation using Sphinx
+      run:
+        rm -r docs/
+        mkdir docs
+        cd docs
+        sphinx-quickstart -p pyiohat -a 'Tristan Ranff, Manuel Kösters, Artyom Vlasov, Christian Fufezan' -v ${{ github.ref_name }} -l en --no-sep -q --ext-autodoc
+        sphinx-apidoc -o source/ ../pyiohat
     - uses: actions/upload-artifact@v1
       with:
         name: DocumentationHTML
