@@ -25,7 +25,7 @@ jobs:
         rm -r docs/
         mkdir docs
         cd docs
-        sphinx-quickstart -p pyiohat -a $(awk '{print $1,$2}' ../AUTHORS.TXT | paste -s -d, - | sed -e 's/,/, /g') -v ${{ github.ref_name }} -l en --no-sep -q --ext-autodoc
+        sphinx-quickstart -p pyiohat -a "$(awk '{print $1,$2}' ../AUTHORS.TXT | paste -s -d, - | sed -e 's/,/, /g')" -v ${{ github.ref_name }} -l en --no-sep -q --ext-autodoc
         sphinx-apidoc -o source/ ../pyiohat
         make html
     - name: Checkout Github Pages branch
