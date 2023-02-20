@@ -20,6 +20,7 @@ jobs:
         cd docs
         sphinx-quickstart -p pyiohat -a 'Tristan Ranff, Manuel Kösters, Artyom Vlasov, Christian Fufezan' -v ${{ github.ref_name }} -l en --no-sep -q --ext-autodoc
         sphinx-apidoc -o source/ ../pyiohat
+        make html
     - uses: actions/upload-artifact@v1
       with:
         name: DocumentationHTML
