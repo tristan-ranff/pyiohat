@@ -26,6 +26,8 @@ jobs:
         mkdir docs
         cd docs
         sphinx-quickstart -p pyiohat -a "$(awk '{print $1,$2}' ../AUTHORS.TXT | paste -s -d, - | sed -e 's/,/, /g')" -v ${{ github.ref_name }} -l en --no-sep -q --ext-autodoc
+        sed -E "s/(html_theme =) .*/\1 'sphinx_rtd_theme'/" conf.py > tmp.py
+        mv tmp.py conf.py
         sphinx-apidoc -o source/ ../pyiohat
         make html
     - name: Checkout Github Pages branch
