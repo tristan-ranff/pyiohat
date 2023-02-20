@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyiohat.parsers package &mdash; pyiohat v3.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyiohat
+          </a>
+              <div class="version">
+                v3.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyiohat.parsers package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyiohat.parsers.base_parser">pyiohat.parsers.base_parser module</a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.base_parser.BaseParser"><code class="docutils literal notranslate"><span class="pre">BaseParser</span></code></a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.base_parser.BaseParser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">BaseParser.check_parser_compatibility()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.base_parser.BaseParser.sanitize"><code class="docutils literal notranslate"><span class="pre">BaseParser.sanitize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyiohat.parsers.ident_base_parser">pyiohat.parsers.ident_base_parser module</a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser</span></code></a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.add_decoy_identity"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.add_decoy_identity()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.add_protein_ids"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.add_protein_ids()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.add_ranks"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.add_ranks()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.assert_only_iupac_and_missing_aas"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.assert_only_iupac_and_missing_aas()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.calc_masses_offsets_and_composition"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.calc_masses_offsets_and_composition()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.check_enzyme_specificity"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.check_enzyme_specificity()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.clean_up_modifications"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.clean_up_modifications()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.get_meta_info"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.get_meta_info()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.process_unify_style"><code class="docutils literal notranslate"><span class="pre">IdentBaseParser.process_unify_style()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyiohat.parsers.misc">pyiohat.parsers.misc module</a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.misc.get_atom_counts"><code class="docutils literal notranslate"><span class="pre">get_atom_counts()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.misc.get_compositions_and_monoisotopic_masses"><code class="docutils literal notranslate"><span class="pre">get_compositions_and_monoisotopic_masses()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.misc.get_isotopologue_accuracy"><code class="docutils literal notranslate"><span class="pre">get_isotopologue_accuracy()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.misc.init_custom_cc"><code class="docutils literal notranslate"><span class="pre">init_custom_cc()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.misc.sort_mods"><code class="docutils literal notranslate"><span class="pre">sort_mods()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyiohat.parsers.quant_base_parser">pyiohat.parsers.quant_base_parser module</a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.quant_base_parser.QuantBaseParser"><code class="docutils literal notranslate"><span class="pre">QuantBaseParser</span></code></a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.quant_base_parser.QuantBaseParser.process_unify_style"><code class="docutils literal notranslate"><span class="pre">QuantBaseParser.process_unify_style()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyiohat.parsers">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyiohat</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyiohat.parsers package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/pyiohat.parsers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyiohat-parsers-package">
+<h1>pyiohat.parsers package<a class="headerlink" href="#pyiohat-parsers-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyiohat.parsers.ident.html">pyiohat.parsers.ident package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.comet_2020_01_4_parser">pyiohat.parsers.ident.comet_2020_01_4_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.get_peptide_lookup"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.get_peptide_lookup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.get_spec_records"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.get_spec_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.get_version"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.get_version()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.map_mod_mass"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.map_mod_mass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.map_mods_sequences"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.map_mods_sequences()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.comet_2020_01_4_parser.Comet_2020_01_4_Parser.unify"><code class="docutils literal notranslate"><span class="pre">Comet_2020_01_4_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.dummy_parser">pyiohat.parsers.ident.dummy_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.dummy_parser.Dummy"><code class="docutils literal notranslate"><span class="pre">Dummy</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.dummy_parser.Dummy.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">Dummy.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.dummy_parser.Dummy.unify"><code class="docutils literal notranslate"><span class="pre">Dummy.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.mascot_2_6_2_parser">pyiohat.parsers.ident.mascot_2_6_2_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.mascot_2_6_2_parser.Mascot_2_6_2_Parser"><code class="docutils literal notranslate"><span class="pre">Mascot_2_6_2_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.mascot_2_6_2_parser.Mascot_2_6_2_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">Mascot_2_6_2_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.mascot_2_6_2_parser.Mascot_2_6_2_Parser.unify"><code class="docutils literal notranslate"><span class="pre">Mascot_2_6_2_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.msamanda_2_parser">pyiohat.parsers.ident.msamanda_2_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msamanda_2_parser.MSAmanda_2_Parser"><code class="docutils literal notranslate"><span class="pre">MSAmanda_2_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msamanda_2_parser.MSAmanda_2_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">MSAmanda_2_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msamanda_2_parser.MSAmanda_2_Parser.translate_mods"><code class="docutils literal notranslate"><span class="pre">MSAmanda_2_Parser.translate_mods()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msamanda_2_parser.MSAmanda_2_Parser.unify"><code class="docutils literal notranslate"><span class="pre">MSAmanda_2_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.msfragger_3_parser">pyiohat.parsers.ident.msfragger_3_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msfragger_3_parser.MSFragger_3_Parser"><code class="docutils literal notranslate"><span class="pre">MSFragger_3_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msfragger_3_parser.MSFragger_3_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">MSFragger_3_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msfragger_3_parser.MSFragger_3_Parser.translate_mods"><code class="docutils literal notranslate"><span class="pre">MSFragger_3_Parser.translate_mods()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msfragger_3_parser.MSFragger_3_Parser.unify"><code class="docutils literal notranslate"><span class="pre">MSFragger_3_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.msgfplus_2021_03_22_parser">pyiohat.parsers.ident.msgfplus_2021_03_22_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msgfplus_2021_03_22_parser.MSGFPlus_2021_03_22_Parser"><code class="docutils literal notranslate"><span class="pre">MSGFPlus_2021_03_22_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msgfplus_2021_03_22_parser.MSGFPlus_2021_03_22_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">MSGFPlus_2021_03_22_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msgfplus_2021_03_22_parser.MSGFPlus_2021_03_22_Parser.get_peptide_lookup"><code class="docutils literal notranslate"><span class="pre">MSGFPlus_2021_03_22_Parser.get_peptide_lookup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msgfplus_2021_03_22_parser.MSGFPlus_2021_03_22_Parser.get_spec_records"><code class="docutils literal notranslate"><span class="pre">MSGFPlus_2021_03_22_Parser.get_spec_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msgfplus_2021_03_22_parser.MSGFPlus_2021_03_22_Parser.get_version"><code class="docutils literal notranslate"><span class="pre">MSGFPlus_2021_03_22_Parser.get_version()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.msgfplus_2021_03_22_parser.MSGFPlus_2021_03_22_Parser.unify"><code class="docutils literal notranslate"><span class="pre">MSGFPlus_2021_03_22_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.omssa_2_1_9_parser">pyiohat.parsers.ident.omssa_2_1_9_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.omssa_2_1_9_parser.Omssa_Parser"><code class="docutils literal notranslate"><span class="pre">Omssa_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.omssa_2_1_9_parser.Omssa_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">Omssa_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.omssa_2_1_9_parser.Omssa_Parser.translate_mods"><code class="docutils literal notranslate"><span class="pre">Omssa_Parser.translate_mods()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.omssa_2_1_9_parser.Omssa_Parser.unify"><code class="docutils literal notranslate"><span class="pre">Omssa_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident.xtandem_alanine">pyiohat.parsers.ident.xtandem_alanine module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.xtandem_alanine.XTandemAlanine_Parser"><code class="docutils literal notranslate"><span class="pre">XTandemAlanine_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.xtandem_alanine.XTandemAlanine_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">XTandemAlanine_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.xtandem_alanine.XTandemAlanine_Parser.get_spec_records"><code class="docutils literal notranslate"><span class="pre">XTandemAlanine_Parser.get_spec_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.xtandem_alanine.XTandemAlanine_Parser.map_mod_names"><code class="docutils literal notranslate"><span class="pre">XTandemAlanine_Parser.map_mod_names()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.ident.html#pyiohat.parsers.ident.xtandem_alanine.XTandemAlanine_Parser.unify"><code class="docutils literal notranslate"><span class="pre">XTandemAlanine_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.ident.html#module-pyiohat.parsers.ident">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyiohat.parsers.quant.html">pyiohat.parsers.quant package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.quant.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.quant.html#module-pyiohat.parsers.quant.flash_lfq_1_2_0_parser">pyiohat.parsers.quant.flash_lfq_1_2_0_parser module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyiohat.parsers.quant.html#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.quant.html#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.check_parser_compatibility()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.quant.html#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_chemical_composition"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.get_chemical_composition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.quant.html#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_meta_info"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.get_meta_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.quant.html#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.translate_mods"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.translate_mods()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyiohat.parsers.quant.html#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.unify"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyiohat.parsers.quant.html#module-pyiohat.parsers.quant">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pyiohat.parsers.base_parser">
+<span id="pyiohat-parsers-base-parser-module"></span><h2>pyiohat.parsers.base_parser module<a class="headerlink" href="#module-pyiohat.parsers.base_parser" title="Permalink to this heading"></a></h2>
+<p>Parser handler.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyiohat.parsers.base_parser.BaseParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.base_parser.</span></span><span class="sig-name descname"><span class="pre">BaseParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immutable_peptides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.base_parser.BaseParser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class of all parser types.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.base_parser.BaseParser.check_parser_compatibility">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_parser_compatibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.base_parser.BaseParser.check_parser_compatibility" title="Permalink to this definition"></a></dt>
+<dd><p>Assert compatibility between file and parser.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file (str): path to input file</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if parser and file are compatible</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.base_parser.BaseParser.sanitize">
+<span class="sig-name descname"><span class="pre">sanitize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.base_parser.BaseParser.sanitize" title="Permalink to this definition"></a></dt>
+<dd><p>Perform dataframe sanitation steps.</p>
+<ul class="simple">
+<li><p>Cast defined types</p></li>
+<li><p>Columns that were not filled in but should exist in the unified format are added and set to None</p></li>
+<li><p>Columns in the dataframe which could not be properly mapped are removed (warning is raised)</p></li>
+</ul>
+<p>Operations are performed inplace on self.df</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyiohat.parsers.ident_base_parser">
+<span id="pyiohat-parsers-ident-base-parser-module"></span><h2>pyiohat.parsers.ident_base_parser module<a class="headerlink" href="#module-pyiohat.parsers.ident_base_parser" title="Permalink to this heading"></a></h2>
+<p>Ident base parser class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.ident_base_parser.</span></span><span class="sig-name descname"><span class="pre">IdentBaseParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyiohat.parsers.base_parser.BaseParser" title="pyiohat.parsers.base_parser.BaseParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseParser</span></code></a></p>
+<p>Base class of all ident parsers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.add_decoy_identity">
+<span class="sig-name descname"><span class="pre">add_decoy_identity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.add_decoy_identity" title="Permalink to this definition"></a></dt>
+<dd><p>Add boolean decoy state if designated decoy prefix is in Protein IDs.</p>
+<p>Also marks peptides which were assigned decoy but were immutable during
+target decoy generation.
+Operations are performed inplace on self.df</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.add_protein_ids">
+<span class="sig-name descname"><span class="pre">add_protein_ids</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.add_protein_ids" title="Permalink to this definition"></a></dt>
+<dd><p>Add all Protein IDs that matching the sequence.</p>
+<p>Operations are performed inplace on self.df</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.add_ranks">
+<span class="sig-name descname"><span class="pre">add_ranks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.add_ranks" title="Permalink to this definition"></a></dt>
+<dd><p>Ranks are calculated based on the engine scoring column at Spectrum ID level.</p>
+<p>Operations are performed inplace on self.df</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.assert_only_iupac_and_missing_aas">
+<span class="sig-name descname"><span class="pre">assert_only_iupac_and_missing_aas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.assert_only_iupac_and_missing_aas" title="Permalink to this definition"></a></dt>
+<dd><p>Assert that only IUPAC nomenclature one letter amino acids are used in sequence.</p>
+<p>Non-IUPAC designations are dropped (except for selenocysteine).
+Operations are performed inplace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.calc_masses_offsets_and_composition">
+<span class="sig-name descname"><span class="pre">calc_masses_offsets_and_composition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.calc_masses_offsets_and_composition" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate chemical composition theoretical masses, and mass-to-charge ratios.</p>
+<p>Offsets are calculated between theoretical and experimental mass-to-charge ratio.
+Operations are performed inplace on self.df</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.check_enzyme_specificity">
+<span class="sig-name descname"><span class="pre">check_enzyme_specificity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.check_enzyme_specificity" title="Permalink to this definition"></a></dt>
+<dd><p>Check consistency of N/C-terminal cleavage sites.</p>
+<p>Calculates number of missed cleavage sites.
+Operations are performed inplace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.clean_up_modifications">
+<span class="sig-name descname"><span class="pre">clean_up_modifications</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.clean_up_modifications" title="Permalink to this definition"></a></dt>
+<dd><p>Sanitizes modstrings generated by engine parsers.</p>
+<p>Modifications are sorted by position and leading, repeated or trailing delimiters are removed
+Operations are performed inplace on self.df</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.get_meta_info">
+<span class="sig-name descname"><span class="pre">get_meta_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.get_meta_info" title="Permalink to this definition"></a></dt>
+<dd><p>Extract meta information.</p>
+<p>Experimental mass-to-charge ratios, retention times, file names,
+and spectrum titles are added.
+Operations are performed inplace on self.df</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.ident_base_parser.IdentBaseParser.process_unify_style">
+<span class="sig-name descname"><span class="pre">process_unify_style</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.ident_base_parser.IdentBaseParser.process_unify_style" title="Permalink to this definition"></a></dt>
+<dd><p>Combine all additional operations that are needed to calculate new columns and sanitize the dataframe.</p>
+<p>Operations are performed inplace on self.df</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyiohat.parsers.misc">
+<span id="pyiohat-parsers-misc-module"></span><h2>pyiohat.parsers.misc module<a class="headerlink" href="#module-pyiohat.parsers.misc" title="Permalink to this heading"></a></h2>
+<p>Parser handler.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyiohat.parsers.misc.get_atom_counts">
+<span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.misc.</span></span><span class="sig-name descname"><span class="pre">get_atom_counts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compositions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.misc.get_atom_counts" title="Permalink to this definition"></a></dt>
+<dd><p>Get the count occurrence of each atom in a given sequence with respective mods.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sequences (np.array): numpy string array with sequences
+modifications (np.array): numpy string array with modifications
+compositions (dict of dict): dict with each amino acid and modification composition</p>
+</dd>
+<dt>Returns:</dt><dd><p>elements (list): ordered uniquely occurring elements
+atom_counts (np.array): numpy int array with PSM-level atomic composition</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyiohat.parsers.misc.get_compositions_and_monoisotopic_masses">
+<span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.misc.</span></span><span class="sig-name descname"><span class="pre">get_compositions_and_monoisotopic_masses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequences</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifications</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compositions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isotopic_distributions</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.misc.get_compositions_and_monoisotopic_masses" title="Permalink to this definition"></a></dt>
+<dd><p>Get compositions and monoisotopic masses per PSM.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sequences (np.array): numpy string array with sequences
+modifications (np.array): numpy string array with modifications
+compositions (dict of dict): dict with each amino acid and modification composition
+isotopic_distributions (dict of dict): isotopic distributions as provided by chemical_composition</p>
+</dd>
+<dt>Returns:</dt><dd><p>chemical_compositions (pd.Series): PSM-level chemical compositions in hill notation
+monoisotopic_masses (np.array): numpy float array with PSM-level monoisotopic masses</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyiohat.parsers.misc.get_isotopologue_accuracy">
+<span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.misc.</span></span><span class="sig-name descname"><span class="pre">get_isotopologue_accuracy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">charge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_mz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.misc.get_isotopologue_accuracy" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the isotopologue accuracy.</p>
+<p>Only the accuracy of the isotopologue closest to the experimental mass is reported.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>composition (str): chemical composition in hill notation
+charge (int): charge
+exp_mz (float): experimental spectrum mz</p>
+</dd>
+<dt>Returns:</dt><dd><p>isotopologue_acc (float): accuracy in ppm</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyiohat.parsers.misc.init_custom_cc">
+<span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.misc.</span></span><span class="sig-name descname"><span class="pre">init_custom_cc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.misc.init_custom_cc" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize function for multiprocessing by providing ‘global’ attribute.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>function (function): function to be appended with cc attribute
+proton (float): proton mass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pyiohat.parsers.misc.sort_mods">
+<span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.misc.</span></span><span class="sig-name descname"><span class="pre">sort_mods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.misc.sort_mods" title="Permalink to this definition"></a></dt>
+<dd><p>Sort mods based on position in peptide and ensures unique mod:pos pairs.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>data (list): list of modifications with style “Mod:position”</p>
+</dd>
+<dt>Returns:</dt><dd><p>sorted_formatted_mods (str): String with sorted mods in style “Mod1:pos1;Modn:posn”</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pyiohat.parsers.quant_base_parser">
+<span id="pyiohat-parsers-quant-base-parser-module"></span><h2>pyiohat.parsers.quant_base_parser module<a class="headerlink" href="#module-pyiohat.parsers.quant_base_parser" title="Permalink to this heading"></a></h2>
+<p>Quant base parser class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant_base_parser.QuantBaseParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.quant_base_parser.</span></span><span class="sig-name descname"><span class="pre">QuantBaseParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant_base_parser.QuantBaseParser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyiohat.parsers.base_parser.BaseParser" title="pyiohat.parsers.base_parser.BaseParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseParser</span></code></a></p>
+<p>Base class of all quant parsers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant_base_parser.QuantBaseParser.process_unify_style">
+<span class="sig-name descname"><span class="pre">process_unify_style</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant_base_parser.QuantBaseParser.process_unify_style" title="Permalink to this definition"></a></dt>
+<dd><p>Apply sanitizing methods.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyiohat.parsers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyiohat.parsers" title="Permalink to this heading"></a></h2>
+<p>Init file.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Manuel Kösters, Tristan Ranff, Artyom Vlasov, Christian Fufezan, test .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

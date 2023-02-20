@@ -1,0 +1,77 @@
+pyiohat.parsers.ident package
+=============================
+
+Submodules
+----------
+
+pyiohat.parsers.ident.comet\_2020\_01\_4\_parser module
+-------------------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.comet_2020_01_4_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.dummy\_parser module
+------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.dummy_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.mascot\_2\_6\_2\_parser module
+----------------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.mascot_2_6_2_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.msamanda\_2\_parser module
+------------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.msamanda_2_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.msfragger\_3\_parser module
+-------------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.msfragger_3_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.msgfplus\_2021\_03\_22\_parser module
+-----------------------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.msgfplus_2021_03_22_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.omssa\_2\_1\_9\_parser module
+---------------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.omssa_2_1_9_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident.xtandem\_alanine module
+---------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident.xtandem_alanine
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pyiohat.parsers.ident
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,37 @@
+pyiohat package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyiohat.parsers
+
+Submodules
+----------
+
+pyiohat.unify module
+--------------------
+
+.. automodule:: pyiohat.unify
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.utils module
+--------------------
+
+.. automodule:: pyiohat.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pyiohat
+   :members:
+   :undoc-members:
+   :show-inheritance:

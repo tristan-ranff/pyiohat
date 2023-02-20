@@ -1,0 +1,54 @@
+pyiohat.parsers package
+=======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   pyiohat.parsers.ident
+   pyiohat.parsers.quant
+
+Submodules
+----------
+
+pyiohat.parsers.base\_parser module
+-----------------------------------
+
+.. automodule:: pyiohat.parsers.base_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.ident\_base\_parser module
+------------------------------------------
+
+.. automodule:: pyiohat.parsers.ident_base_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.misc module
+---------------------------
+
+.. automodule:: pyiohat.parsers.misc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pyiohat.parsers.quant\_base\_parser module
+------------------------------------------
+
+.. automodule:: pyiohat.parsers.quant_base_parser
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pyiohat.parsers
+   :members:
+   :undoc-members:
+   :show-inheritance:

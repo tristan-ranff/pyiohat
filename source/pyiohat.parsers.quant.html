@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyiohat.parsers.quant package &mdash; pyiohat v3.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            pyiohat
+          </a>
+              <div class="version">
+                v3.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">pyiohat.parsers.quant package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-pyiohat.parsers.quant.flash_lfq_1_2_0_parser">pyiohat.parsers.quant.flash_lfq_1_2_0_parser module</a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser</span></code></a><ul>
+<li><a class="reference internal" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.check_parser_compatibility"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.check_parser_compatibility()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_chemical_composition"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.get_chemical_composition()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_meta_info"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.get_meta_info()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.translate_mods"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.translate_mods()</span></code></a></li>
+<li><a class="reference internal" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.unify"><code class="docutils literal notranslate"><span class="pre">FlashLFQ_1_2_0_Parser.unify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-pyiohat.parsers.quant">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pyiohat</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyiohat.parsers.quant package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/pyiohat.parsers.quant.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyiohat-parsers-quant-package">
+<h1>pyiohat.parsers.quant package<a class="headerlink" href="#pyiohat-parsers-quant-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pyiohat.parsers.quant.flash_lfq_1_2_0_parser">
+<span id="pyiohat-parsers-quant-flash-lfq-1-2-0-parser-module"></span><h2>pyiohat.parsers.quant.flash_lfq_1_2_0_parser module<a class="headerlink" href="#module-pyiohat.parsers.quant.flash_lfq_1_2_0_parser" title="Permalink to this heading"></a></h2>
+<p>Quant parser.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyiohat.parsers.quant.flash_lfq_1_2_0_parser.</span></span><span class="sig-name descname"><span class="pre">FlashLFQ_1_2_0_Parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyiohat.parsers.html#pyiohat.parsers.quant_base_parser.QuantBaseParser" title="pyiohat.parsers.quant_base_parser.QuantBaseParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantBaseParser</span></code></a></p>
+<p>File parser for Flash LFQ.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.check_parser_compatibility">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">check_parser_compatibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.check_parser_compatibility" title="Permalink to this definition"></a></dt>
+<dd><p>Assert compatibility between file and parser.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>file (str): path to input file</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if parser and file are compatible</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_chemical_composition">
+<span class="sig-name descname"><span class="pre">get_chemical_composition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_chemical_composition" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_meta_info">
+<span class="sig-name descname"><span class="pre">get_meta_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.get_meta_info" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.translate_mods">
+<span class="sig-name descname"><span class="pre">translate_mods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_sequence</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.translate_mods" title="Permalink to this definition"></a></dt>
+<dd><p>Extract modifications from full_sequence and format as {mod_1}:{pos_1};{mod_n}:{pos_n}.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>full_sequence (str): sequence including mod (e.g. ELVISC[Carbamidomethyl]M[Oxidation])</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: extracted mods as described in summary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.unify">
+<span class="sig-name descname"><span class="pre">unify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyiohat.parsers.quant.flash_lfq_1_2_0_parser.FlashLFQ_1_2_0_Parser.unify" title="Permalink to this definition"></a></dt>
+<dd><p>Primary method to read and unify engine output.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>self.df (pd.DataFrame): unified dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyiohat.parsers.quant">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyiohat.parsers.quant" title="Permalink to this heading"></a></h2>
+<p>Init file.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Manuel Kösters, Tristan Ranff, Artyom Vlasov, Christian Fufezan, test .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
