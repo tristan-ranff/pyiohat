@@ -24,8 +24,6 @@ jobs:
         mkdir docs
         cd docs
         sphinx-quickstart -p pyiohat -a 'Tristan Ranff, Manuel Kösters, Artyom Vlasov, Christian Fufezan' -v ${{ github.ref_name }} -l en --no-sep -q --ext-autodoc
-        echo "import sys, os" >> conf.py
-        echo "sys.path.insert(0, os.path.abspath('..'))" >> conf.py
         sphinx-apidoc -o source/ ../pyiohat
         make html
     - name: Checkout Github Pages branch
